@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>What's my IP address — NAS Digital</title>
+    <meta
+      name="description"
+      content="Your public IP address, country, the Cloudflare data centre serving you, and which TLS and HTTP version your connection is using. Nothing is logged and no third party is involved."
+    />
+    <link rel="stylesheet" href="demo.css" />
+    <link rel="stylesheet" href="../dist/ip-lookup.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "What's my IP address",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any browser",
+        "description": "Shows your public IP address, country, the Cloudflare edge serving the page, and the TLS and HTTP versions your connection negotiated. No third-party lookup service is involved and no address is stored.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+        "featureList": [
+          "Public IPv4 or IPv6 address",
+          "Country, and the Cloudflare data centre serving the page",
+          "TLS and HTTP version, with obsolete TLS flagged",
+          "No third-party lookup service and nothing stored"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <main class="wrap">
+      <p class="eyebrow">Free tool</p>
+      <h1>What's my IP address</h1>
+      <p class="lede">
+        What your connection looks like from the outside — the one thing a browser genuinely cannot
+        work out on its own. No third-party lookup service is involved, and nothing is written down.
+      </p>
+
+      <noscript>
+        <p class="ipl-note">
+          This one asks the server what it can see about your connection, so it needs JavaScript
+          switched on.
+        </p>
+      </noscript>
+
+      <!-- The two data-*-src attributes point at committed fixtures so the whole
+           render path runs on a plain local server. On the real site they are
+           absent and the defaults are /cdn-cgi/trace and /api/ip-info. -->
+      <section
+        class="ipl glass"
+        data-ipl
+        data-ipl-trace-src="trace.txt"
+        data-ipl-isp-src="ip-info.json"
+        style="padding: clamp(1rem, 4vw, 2rem); border-radius: 16px"
+      >
+        <div class="ipl-panel">
+          <h2 class="ipl-title">Your connection</h2>
+          <dl class="ipl-list" data-ipl-out></dl>
+        </div>
+
+        <div class="ipl-panel" data-ipl-isp hidden>
+          <h2 class="ipl-title">Who the address is registered to</h2>
+          <dl class="ipl-list" data-ipl-isp-out></dl>
+        </div>
+
+        <p class="ipl-note" data-ipl-note></p>
+      </section>
+
+      <h2>The data centre is not where you are</h2>
+      <p>
+        The three-letter code is an airport code for the Cloudflare data centre that answered this
+        request — the nearest one with capacity, which is usually but not always near you. It says
+        more about how your traffic is routed than about your address.
+      </p>
+
+      <h2>Where the numbers come from</h2>
+      <p>
+        Cloudflare already sits in front of this site and already knows all of this, because it
+        handled the request. The page asks it directly rather than sending your address off to a
+        third-party geolocation API, which is what most "what's my IP" pages do — and which means
+        handing your address to a company you did not choose so they can tell you what it is.
+      </p>
+      <p>
+        Nothing here is stored. There is no database, no log of visitors, and the page has no way to
+        remember you were here.
+      </p>
+
+      <h2>How accurate is the location?</h2>
+      <p>
+        The country is generally right. Anything more precise is estimated from which network block
+        your address sits in, and it is routinely wrong by tens of miles — it often points at wherever
+        your provider registered the range rather than at you. Treat it as a rough hint, not a
+        location.
+      </p>
+    </main>
+
+    <script src="../dist/ip-lookup.js" defer></script>
+  </body>
+</html>

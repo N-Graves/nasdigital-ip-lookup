@@ -1,0 +1,78 @@
+/* Demo-page chrome only. None of this ships - the site provides its own, and the
+   tool's stylesheet defers to whatever tokens it finds. The values below mirror
+   nasdigital.co.uk closely enough that what you see here is what lands there. */
+
+:root {
+  --ink: #08090d;
+  --surface-2: rgba(255, 255, 255, 0.04);
+  --line: #232733;
+  --text: #eef1f6;
+  --text-2: #a7b0bf;
+  --text-3: #6f7889;
+  --accent: #e0915a;
+  --f-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --wrap: 1120px;
+  --narrow: 68ch;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: clamp(1.5rem, 5vw, 4rem) clamp(1rem, 5vw, 2rem);
+  background: var(--ink);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.65;
+}
+
+.wrap {
+  max-width: var(--narrow);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.9rem, 1.3rem + 2.4vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  margin: 2.5rem 0 0.6rem;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--text-2);
+}
+
+.lede {
+  font-size: 1.08rem;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+code {
+  font-family: var(--f-mono);
+  font-size: 0.92em;
+  color: var(--text);
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}

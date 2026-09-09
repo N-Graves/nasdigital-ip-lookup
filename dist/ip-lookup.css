@@ -1,0 +1,74 @@
+/*! nasdigital-ip-lookup v0.1.0 - MIT
+ * https://github.com/N-Graves/nasdigital-ip-lookup#readme
+ *  * Runs entirely in the browser. It reads two same-origin endpoints on the site
+ * it is installed on, and stores nothing.
+ */
+/* src/style.css */
+.ipl {
+  --ipl-text: var(--text, #eef1f6);
+  --ipl-dim: var(--text-2, #a7b0bf);
+  --ipl-faint: var(--text-3, #6f7889);
+  --ipl-line: var(--line, rgba(255, 255, 255, 0.14));
+  --ipl-surface: var(--surface-2, rgba(255, 255, 255, 0.04));
+  --ipl-accent: var(--accent, #e0915a);
+  --ipl-mono: var(--f-mono, ui-monospace, "SF Mono", Menlo, Consolas, monospace);
+  display: grid;
+  gap: 1rem;
+  color: var(--ipl-text);
+}
+.ipl-panel {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--ipl-line);
+  border-radius: 14px;
+  background: var(--ipl-surface);
+}
+.ipl-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ipl-faint);
+}
+.ipl-list {
+  margin: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+.ipl-row {
+  display: grid;
+  gap: 0.1rem 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 34rem) {
+  .ipl-row {
+    grid-template-columns: 12rem 1fr;
+    align-items: baseline;
+  }
+}
+.ipl-label {
+  font-size: 0.88rem;
+  color: var(--ipl-dim);
+}
+.ipl-value {
+  margin: 0;
+  font-family: var(--ipl-mono);
+  font-size: 0.95rem;
+  word-break: break-all;
+}
+.ipl-hint {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: inherit;
+  font-size: 0.8rem;
+  color: var(--ipl-faint);
+}
+.ipl-note {
+  margin: 0;
+  min-height: 1.2em;
+  font-size: 0.88rem;
+  color: var(--ipl-dim);
+}
+.ipl-note-quiet {
+  color: var(--ipl-faint);
+  font-style: italic;
+}
